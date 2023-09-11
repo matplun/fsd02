@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<!-- Create a weather application that fetches information from remote weather server 
+and displays information for that day. here is the link to fetch from -
+
+https://api.openweathermap.org/data/2.5/weather?q=08536&appid=93f26e3c57081a6210de53b8dcfdfea4
+
+Use Async-Await to fetch information from the remote location.
+
+Feel free to get as much detail as possible from the JSON received from server 
+and display it in a format that is understandable by the user. -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,33 +16,16 @@
     <script>
         let city;
         async function clickHandler(){            
-            // alert('clicked');
-            // alert(document.getElementById('weather').innerText);
-
-
             city = document.getElementById('city').value;
-           
-            // Fetch the weather details
             let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=93f26e3c57081a6210de53b8dcfdfea4`;
-            // let response = await fetch(url);
-            // console.log(response.json());
-
-
             await fetch(url)
             .then( (weather) => {return weather.json()})
             .then(displayData);        
-
-
-            // print to console
-            // get needed info and display it in div
         }
-
-
         function displayData(data){
             console.log(data);
             console.log(data.main.temp_min)
             let imgurl = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-           
             document.getElementById('weather').innerHTML =
             ` <h3> ${city} </h3> MinTemp ${Math.floor(data.main.temp_min-273)}C
             Max Temp ${Math.floor(data.main.temp_max-273)}C
@@ -46,18 +38,11 @@
     </script>
 </head>
 <body>
-   
     <div>
-        <h1> Weather details below</h1>
+        <h1>Weather details below:</h1>
     </div>
-
-
     <input type="text" id="city">
-
-
-    <button onclick="clickHandler()"> Click for weather details </button>
-
-
-    <div id="weather"> Details here</div>
+    <button onclick="clickHandler()">Click for weather details</button>
+    <div id="weather">Details here.</div>
 </body>
 </html>
