@@ -11,14 +11,23 @@ Now that you know how to create a class and functional component.
 Please create a ‘greetings’ functional and class component using reactlibs and Babel.
 Upload the code to git and share the link. -->
 <body>
-    <div id="greetings_functional_component"></div>
-    <div id="greetings_class_component"></div>
+    
+    <div id="root">This is the root of the React Page.</div>
     
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-
+        class ClassComponent extends React.Component{
+            render(){
+                return (<h1>Hello visitor! This is the message from a class component. </h1>);
+            }
+        }
+        let FunctionalComponent = () => {
+            return (<h1>Hello visitor! This is the message from a functional component.</h1>);
+        }
+        let root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render([<FunctionalComponent />,<ClassComponent/>]);
     </script>
 </body>
 </html>

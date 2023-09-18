@@ -11,14 +11,28 @@ re-render the component. Please create a ‘counter’ button as a  functional
 component using useState hook, such that a button is displayed and clicking 
 on it , its label which is initially at 27, keeps incrementing. -->
 <body>
-    <div id="greetings_functional_component"></div>
-    <div id="greetings_class_component"></div>
+    <div id="root"></div>
     
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
+        let StateFunctionalComponent = () => {
+            let {useState} = React;
 
+            let [count, setCount] = useState(27);
+            
+            let clickHandler = () => {
+                setCount(++count);
+            }
+
+            return (<>
+                <h1>Hello. Current Number is {count}</h1>
+                <button onClick={clickHandler}>Click to increment</button>
+            </>)
+        }
+        let root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<StateFunctionalComponent/>);
     </script>
 </body>
 </html>

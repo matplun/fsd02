@@ -12,14 +12,31 @@ a 'greetings' class component such that the name is sent as attribute
 from the component, is read as props and is displayed on screen 
 as "Hello XYZ" or "Hello Jane!". -->
 <body>
-    <div id="greetings_functional_component"></div>
-    <div id="greetings_class_component"></div>
+    <div id="root"></div>
     
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
+        class ClassComponent extends React.Component{
+            constructor(props){
+                super(props);
+            }
 
+            render(){
+                return (<h1>Hello visitor! This is the message from a class component. A number: {this.props.number}</h1>);
+            }
+        }
+        
+        let FunctionalComponent = (props) => {
+            return (<h1>Hello visitor! This is the message from a functional component. {props.message}</h1>);
+        }
+        
+        let root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<>
+            <FunctionalComponent message="Hello Matthew!"/>
+            <ClassComponent number={24}/>
+        </>);
     </script>
 </body>
 </html>
