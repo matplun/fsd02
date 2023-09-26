@@ -1,17 +1,12 @@
-//import IDcard from "./IDcard";
+import IDcard from "./IDcard";
 import Data from '../Data.json'
-import IDcardClass from "./IDcardClass";
 
 function IDCards() {
     return (<>
         <h1>IDCards</h1>
         {/*  Using Functional Component */}
-        {/* {Data.data.map(elm => {
-            return <IDcard key={elm.id} name={elm.name} age={elm.age} des={elm.des}/>
-        })} */}
-        {/* Using Class component */}
         {Data.data.map(elm => {
-            return <IDcardClass key={elm.id} name={elm.name} age={elm.age} des={elm.des} />
+            return <IDcard key={elm.id} name={elm.name} age={elm.age} des={elm.des}/>
         })}
     </>
     );

@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-//import IDcardClass from './components/IDcardClass';
 import IDCards from './components/IDcards';
 
 // We now know how to create a ReactJS project without having to worry about 
