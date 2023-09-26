@@ -1,10 +1,10 @@
-import React from "react"; // second way
+import Component from "react"; // second way
 
 // import { Component } from "react"; // one way of importing
 //class IDcardClass extends Component {
 
 
-class IDcardClass extends React.Component {
+class IDcardClass extends Component {
 
     // constructor(props){
     //     super(props);
